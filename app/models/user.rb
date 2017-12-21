@@ -1,0 +1,8 @@
+class User < ApplicationRecord
+  before_save { self.email = email.downcase } #将地址中的字母转化为小写
+  validates :name, presence: true, length: { maximum: 50 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },#邮箱地址唯一，且要在数据库层面加上索引
+                    format { with: VALID_EMAIL_REGEX }, #邮箱格式，VALID_EMAIL_REGEX为常量
+                    uniqueness: { case_sensitive: false } #邮箱地址唯一,不区分大小写
+end
