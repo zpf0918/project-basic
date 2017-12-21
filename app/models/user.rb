@@ -5,4 +5,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },#邮箱地址唯一，且要在数据库层面加上索引
                     format { with: VALID_EMAIL_REGEX }, #邮箱格式，VALID_EMAIL_REGEX为常量
                     uniqueness: { case_sensitive: false } #邮箱地址唯一,不区分大小写
+  validates :password, presence: true, length: { maximum: 6} #密码长度
+
+  has_secure_password
+
 end
