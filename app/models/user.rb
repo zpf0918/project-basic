@@ -7,6 +7,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false } #邮箱地址唯一,不区分大小写
   validates :password, presence: true, length: { maximum: 6} #密码长度
 
-  has_secure_password
+  has_secure_password #安全密码
 
 end
