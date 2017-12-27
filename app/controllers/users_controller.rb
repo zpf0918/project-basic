@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in @user #注册后直接登录
       flash[:notice] = "注册成功"
       redirect_to @user
     else

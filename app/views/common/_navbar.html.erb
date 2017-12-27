@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">模型</a>
+        </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <% if !current_user %>
+                  <li><%= link_to "登录", login_path %></li>
+                <% else %>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    你好, <%= current_user.name %>
+                    <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to("修改密码", edit_user_path(current_user)) %></li>
+                    <li> <%= link_to("退出", logout_path(current_user), method: :delete) %> </li>
+                  </ul>
+                </li>
+                <% end %>
+              </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+      </div>
+      <!-- /.container-fluid -->
+</nav>

@@ -32,6 +32,7 @@ gem 'bcrypt'
 gem 'awesome_rails_console'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'jquery-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
